@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testpod3
+spec:
+  containers:
+    - name: c00 # NAME CONTAINER
+      image: ubuntu
+      command:
+        [
+          "/bin/bash",
+          "-c",
+          "while true; do echo Hello Tuan dep trai; sleep 5 ; done",
+        ]
+    - name: c01
+      image: nginx:alpine

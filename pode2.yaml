@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testpod
+  labels:
+    env: develop
+    class: pods
+    depart: test
+spec:
+  containers:
+    - name: c00 # NAME CONTAINER
+      image: ubuntu
+      command:
+        [
+          "/bin/bash",
+          "-c",
+          "while true; do echo Hello Tuan dep trai; sleep 5 ; done",
+        ]
+  restartPolicy: Never
