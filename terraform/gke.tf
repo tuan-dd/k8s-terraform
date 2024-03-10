@@ -28,9 +28,8 @@ resource "google_container_node_pool" "primary_nodes" {
 
   version = data.google_container_engine_versions.gke_version.release_channel_latest_version["STABLE"]
 
-  node_count        = var.num_nodes
-  node_locations    = var.locations
-  max_pods_per_node = 8
+  node_count     = var.num_nodes
+  node_locations = var.locations
 
   node_config {
     # preemptible  = true

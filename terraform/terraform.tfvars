@@ -3,7 +3,7 @@
 
 project_id   = "k8s-learn-415708"
 region       = "asia-southeast1"
-disk_type    = "pd-standard"
+disk_type    = "pd-balanced"
 disk_size_gb = 20
 machine_type = "e2-micro"
 locations     = [ "asia-southeast1-a" ]
