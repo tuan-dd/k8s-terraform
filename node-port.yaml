@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: learn-node-port
+spec:
+  selector:
+    app: nginxserver
+  ports:
+    - name: node-port-port
+      protocol: TCP
+      port: 8080
+      targetPort: http-web-nginx
+      nodePort: 31797
+  type: NodePort

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-learn-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginxserver
+  template:
+    metadata:
+      labels:
+        app: nginxserver
+    spec:
+      containers:
+        - name: c00
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+              name: http-web-nginx

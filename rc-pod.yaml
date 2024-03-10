@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: my-learn-rc
+spec:
+  replicas: 3
+  selector:
+    app: RC-tuan
+  template:
+    metadata:
+      labels:
+        app: RC-tuan
+    spec:
+      containers:
+        - name: c00
+          image: ubuntu
+          command:
+            [
+              "/bin/bash",
+              "-c",
+              "while true; do echo Learning ReplicationController; sleep 5 ; done",
+            ]

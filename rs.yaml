@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-learn-rs
+spec:
+  replicas: 1
+  selector:
+    matchExpressions:
+      - { key: env, operator: In, values: [test, stg, prod] }
+  template:
+    metadata:
+      labels:
+        env: stg
+    spec:
+      containers:
+        - name: c00
+          image: ubuntu
+          command:
+            - "/bin/bash"
+            - "-c"
+            - "while true; do echo Learning ReplicationController; sleep 5; done"
+          resources:
+            requests:
+              cpu: "100m"

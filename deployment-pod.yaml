@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-learn-deployment
+  labels:
+    env: develop
+    test: Deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pod-deployment
+  template:
+    metadata:
+      labels:
+        app: pod-deployment
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: c00 # NAME CONTAINER
+          image: ubuntu
+          command:
+            [
+              "/bin/bash",
+              "-c",
+              "while true; do echo Hello Tuan dep trai cap 3; sleep 5 ; done",
+            ]
